@@ -21,6 +21,10 @@ namespace MySql.Data.MySqlClient
 		public static void Register() => DbProviderFactories.RegisterFactory(InvariantName, Instance);
 #endif
 
+		public DbBatch CreateBatch() => new MySqlDbBatch();
+		public DbBatchCommand CreateBatchCommand() => new MySqlDbBatchCommand();
+		public bool CanCreateBatch => false;
+
 		private MySqlClientFactory()
 		{
 		}
